@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOI Campaign Manager — Freedom of Information campaigns at scale</title>
+  <meta name="description" content="Run private Freedom of Information campaigns to hundreds of UK public authorities, with statutory deadline tracking, automated chasers, and AI response analysis.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="brand">FOI Campaign Manager</span>
+      <nav aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#who">Who it is for</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#register" class="btn btn-small">Register interest</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <h1>Freedom of Information campaigns, run properly.</h1>
+        <p class="lead">
+          Send FOI requests to hundreds of UK public authorities at once, track every
+          statutory deadline, chase non-responders automatically, and have the replies
+          read and broken down question by question. Private by default.
+        </p>
+        <p><a href="#register" class="btn btn-primary">Register your interest</a></p>
+        <p class="note">Working title. Currently in testing, validated against a live campaign to 335 councils.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>What it does</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Send at scale</h3>
+            <p>One request, hundreds of authorities. Batches with sensible throttling, or send to a chosen few.</p>
+          </div>
+          <div class="card">
+            <h3>Deadline tracking</h3>
+            <p>The 20 working day clock is tracked per authority, with automatic chasers and internal review escalation.</p>
+          </div>
+          <div class="card">
+            <h3>Replies read for you</h3>
+            <p>Responses are classified and broken down question by question: answered, partial, not held, or refused.</p>
+          </div>
+          <div class="card">
+            <h3>Challenge weak answers</h3>
+            <p>Built-in, editable challenge letters for implausible "not held" replies, deflections, and refusals.</p>
+          </div>
+          <div class="card">
+            <h3>Private by default</h3>
+            <p>Your campaign and its data stay yours. Not published to the world, unlike public FOI sites.</p>
+          </div>
+          <div class="card">
+            <h3>Export and report</h3>
+            <p>Tables, charts, and CSV or PDF export, including per-question answers across every authority.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="who" class="section section-alt">
+      <div class="container">
+        <h2>Who it is for</h2>
+        <ul class="who-list">
+          <li><strong>Investigative journalists</strong> gathering data across many authorities for a story.</li>
+          <li><strong>NGOs and campaign groups</strong> building an evidence base for advocacy.</li>
+          <li><strong>Consultancies and researchers</strong> running FOI research for clients or studies.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <h2>Pricing</h2>
+        <p class="muted">Indicative plans. A 14 day free trial is planned at launch.</p>
+        <div class="grid pricing">
+          <div class="card price-card">
+            <h3>Starter</h3>
+            <p class="price">£29<span>/month</span></p>
+            <ul>
+              <li>1 campaign</li>
+              <li>Up to 50 authorities</li>
+              <li>Deadline tracking and chasers</li>
+            </ul>
+          </div>
+          <div class="card price-card featured">
+            <h3>Professional</h3>
+            <p class="price">£79<span>/month</span></p>
+            <ul>
+              <li>3 campaigns</li>
+              <li>Full authority list</li>
+              <li>Response analysis and challenges</li>
+            </ul>
+          </div>
+          <div class="card price-card">
+            <h3>Agency</h3>
+            <p class="price">£199<span>/month</span></p>
+            <ul>
+              <li>Unlimited campaigns</li>
+              <li>Team access and roles</li>
+              <li>Priority support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" class="section section-alt">
+      <div class="container narrow">
+        <h2>Register your interest</h2>
+        <p>Be among the first to try it. Leave your details and we will be in touch before launch.</p>
+        <!-- Replace the action below with your form endpoint (Formspree, Zoho Forms, etc.). -->
+        <form class="register-form" action="https://formspree.io/f/REPLACE_ME" method="POST">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <label for="org">Organisation (optional)</label>
+          <input type="text" id="org" name="organisation" autocomplete="organization">
+
+          <label for="use">What would you use it for? (optional)</label>
+          <textarea id="use" name="use" rows="3"></textarea>
+
+          <button type="submit" class="btn btn-primary">Register interest</button>
+        </form>
+        <p class="note">Until the form endpoint is set, you can email
+          <a href="mailto:darren.hale@144mboriginals.com">darren.hale@144mboriginals.com</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> FOI Campaign Manager (working title).</p>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="accessibility.html">Accessibility</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
