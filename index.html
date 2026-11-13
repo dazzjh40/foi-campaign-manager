@@ -1,157 +1,547 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FOI Campaign Manager — Freedom of Information campaigns at scale</title>
-  <meta name="description" content="Run private Freedom of Information campaigns to hundreds of UK public authorities, with statutory deadline tracking, automated chasers, and AI response analysis.">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOI Director: Run Freedom of Information campaigns at scale</title>
+<meta name="description" content="FOI Director runs Freedom of Information request campaigns against UK public authorities at scale. Private, deadline-tracked, and built for journalists, consultancies and NGOs. Or have us run your campaign for you.">
+<link rel="canonical" href="https://foidirector.co.uk/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://foidirector.co.uk/">
+<meta property="og:title" content="FOI Director: Run Freedom of Information campaigns at scale">
+<meta property="og:description" content="Private, deadline-tracked FOI campaigns for journalists, consultancies and NGOs. Built on a real, live campaign, not a demo.">
+<meta property="og:image" content="https://foidirector.co.uk/images/snip1.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FOI Director: Run Freedom of Information campaigns at scale">
+<meta name="twitter:description" content="Private, deadline-tracked FOI campaigns for journalists, consultancies and NGOs. Built on a real, live campaign, not a demo.">
+<meta name="twitter:image" content="https://foidirector.co.uk/images/snip1.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%232f6a4e'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='white' text-anchor='middle'%3EFD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0e0d0b;
+  --card: #181613;
+  --card-inner: #100f0d;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --line-img: rgba(255, 255, 255, 0.12);
+  --cream: #e8e3d0;
+  --cream-dark: #dfd9c5;
+  --cream-line: #cdc7b2;
+  --on-cream: #171512;
+  --accent: #2f6a4e;
+  --accent-hover: #367a5a;
+  --accent-text: #74c39c;
+  --on-accent: #f2efe6;
+  --alert: #bb3b2b;
+  --on-alert: #fbeae6;
+  --text: #f2efe6;
+  --text-soft: rgba(242, 239, 230, 0.62);
+  --text-dim: rgba(242, 239, 230, 0.55);
+  --text-faint: rgba(242, 239, 230, 0.52);
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, Menlo, monospace;
+  --r-lg: 5px;
+  --r-md: 3px;
+  --r-sm: 2px;
+}
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+.skip-link { position: absolute; left: -9999px; top: 0; background: var(--accent); color: var(--on-accent); padding: 10px 18px; border-radius: var(--r-md); z-index: 100; font-size: 14px; font-weight: 600; text-decoration: none; }
+.skip-link:focus { left: 12px; top: 12px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+section { scroll-margin-top: 24px; }
+header.site { border-bottom: 1px solid var(--line); }
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; padding-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.nav-left { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+.wordmark { font-family: var(--font-serif); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+nav.main { display: flex; gap: 24px; font-size: 13px; }
+nav.main a { color: var(--text-soft); text-decoration: none; transition: color .15s ease; }
+nav.main a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.beta-note { font-size: 12px; color: rgba(242, 239, 230, 0.5); }
+.btn-nav { background: var(--accent); color: var(--on-accent); font-size: 13px; font-weight: 600; padding: 10px 18px; border-radius: var(--r-md); text-decoration: none; transition: background .15s ease; }
+.btn-nav:hover { background: var(--accent-hover); }
+.hero { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; padding-top: 56px; padding-bottom: 64px; align-items: center; }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; }
+.pill-badge { display: flex; align-items: center; gap: 8px; font-size: 11.5px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--accent-text); border-radius: var(--r-sm); padding: 6px 12px; align-self: flex-start; }
+.pill-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-text); }
+.hero h1 { margin: 0; font-family: var(--font-serif); font-size: 52px; line-height: 1.04; letter-spacing: -0.015em; font-weight: 600; text-wrap: balance; }
+.hero .lede { margin: 0; font-size: 16px; line-height: 1.55; color: var(--text-soft); }
+.cta-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn-primary { background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 600; padding: 13px 22px; border-radius: var(--r-md); text-decoration: none; transition: background .15s ease; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-outline { border: 1px solid var(--line-strong); font-size: 14px; font-weight: 500; padding: 13px 22px; border-radius: var(--r-md); color: rgba(242, 239, 230, 0.8); text-decoration: none; transition: border-color .15s ease, color .15s ease; }
+.btn-outline:hover { border-color: rgba(255, 255, 255, 0.4); color: var(--text); }
+.hero-link { font-size: 13.5px; color: var(--accent-text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+.hero-link:hover { border-color: var(--accent-text); }
+.micro-row { display: flex; gap: 18px; font-size: 12px; color: var(--text-faint); margin-top: 2px; flex-wrap: wrap; }
+.mock { background: var(--cream); color: var(--on-cream); border: 1px solid var(--cream-line); border-radius: var(--r-lg); padding: 22px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+.mock-head { display: flex; justify-content: space-between; align-items: center; }
+.mock-head .mock-title { font-size: 13px; font-weight: 600; }
+.dark-pill { background: var(--on-cream); color: var(--cream); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: var(--r-sm); }
+.mock-chart { display: flex; align-items: flex-end; gap: 2px; height: 80px; background: var(--cream-dark); border-radius: var(--r-md); padding: 12px; }
+.mock-chart div { flex: 1; background: var(--on-cream); }
+.mock-rows { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; }
+.mock-row { display: flex; justify-content: space-between; background: #fff; border: 1px solid var(--cream-line); border-radius: var(--r-md); padding: 10px 14px; }
+.mock-row .val { font-weight: 600; }
+.mock-row .val.chase { color: var(--accent); }
+.mock-row .val.wait { font-weight: 400; color: rgba(23, 21, 18, 0.5); }
+.mock-footer { display: flex; justify-content: space-between; align-items: center; background: var(--alert); border-radius: var(--r-md); padding: 12px 16px; }
+.mock-footer .flag { font-size: 12.5px; font-weight: 600; color: var(--on-alert); }
+.mock-footer .dark-pill { background: rgba(0,0,0,0.3); color: #fff; padding: 5px 12px; }
+.stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 72px; }
+.stat { padding: 26px 28px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: none; }
+.stat .num { font-family: var(--font-serif); font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
+.stat .lbl { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
+#service { padding-bottom: 72px; }
+.service-card { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--r-lg); padding: 40px 44px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+.service-copy .eyebrow { display: block; margin-bottom: 12px; }
+.service-copy h2 { margin: 0 0 12px; font-family: var(--font-serif); font-size: 30px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; }
+.service-copy p { margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: var(--text-soft); max-width: 46ch; }
+.service-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.service-list li { display: flex; gap: 10px; align-items: baseline; font-size: 14px; color: rgba(242,239,230,0.78); }
+.service-list li::before { content: "\2713"; color: var(--accent-text); font-weight: 700; flex: none; }
+.service-cta { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.service-cta .btn-primary { padding: 14px 26px; }
+.service-note { font-size: 12.5px; color: var(--text-faint); }
+#how-it-works { padding-bottom: 72px; display: flex; flex-direction: column; gap: 28px; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+.section-head h2 { margin: 0; font-family: var(--font-serif); font-size: 34px; font-weight: 600; letter-spacing: -0.015em; }
+.section-head .head-note { font-size: 14px; color: rgba(242, 239, 230, 0.5); }
+.cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 26px; display: flex; flex-direction: column; gap: 10px; }
+.chip { width: 32px; height: 32px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; font-family: var(--font-mono); }
+.chip-1 { background: var(--accent); color: var(--on-accent); }
+.chip-2 { background: var(--cream); color: var(--on-cream); }
+.chip-3 { background: var(--text); color: var(--on-cream); }
+.chip-4 { border: 1px solid var(--line-strong); color: var(--text); }
+.card h3 { margin: 0; font-size: 17px; font-weight: 600; }
+.card p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--text-dim); }
+.card-img { border-radius: var(--r-md); border: 1px solid rgba(255, 255, 255, 0.08); overflow: hidden; margin-top: 6px; }
+.card-img img { width: 100%; height: 180px; object-fit: cover; object-position: 0% 40%; display: block; }
+.qlist { background: var(--card-inner); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: var(--r-md); padding: 8px; display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.qrow { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: var(--r-sm); color: rgba(242, 239, 230, 0.7); font-size: 13px; }
+.qrow .qtag { width: 22px; height: 22px; border-radius: var(--r-sm); border: 1px solid var(--line-strong); display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-mono); flex: none; }
+.qrow.active { background: #221f1a; border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text); }
+.qrow.active .qtag { background: var(--accent); color: var(--on-accent); border: none; font-weight: 600; }
+.clock-panel { background: var(--cream); color: var(--on-cream); border-radius: var(--r-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.clock-label { display: flex; justify-content: space-between; font-size: 12px; color: rgba(23, 21, 18, 0.55); }
+.clock-track { height: 8px; background: var(--cream-line); border-radius: var(--r-sm); overflow: hidden; }
+.clock-fill { width: 70%; height: 100%; background: var(--accent); border-radius: var(--r-sm); }
+.clock-row { display: flex; justify-content: space-between; align-items: center; }
+.clock-row .who { font-size: 13px; font-weight: 600; }
+.clock-row .dark-pill { padding: 4px 11px; }
+.results { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; margin-top: 6px; }
+.result-row { display: flex; justify-content: space-between; align-items: center; background: var(--card-inner); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: var(--r-md); padding: 10px 14px; }
+.result-row .q { color: rgba(242, 239, 230, 0.75); }
+.result-pill { padding: 3px 10px; border-radius: var(--r-sm); font-size: 11px; font-weight: 600; }
+.result-pill.cream { background: var(--cream); color: var(--on-cream); }
+.result-pill.accent { background: var(--alert); color: var(--on-alert); }
+.result-pill.outline { border: 1px solid var(--line-strong); color: rgba(242, 239, 230, 0.7); }
+#proof { padding-bottom: 72px; }
+.proof-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 48px; display: flex; flex-direction: column; gap: 32px; }
+.proof-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.proof-copy { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; font-family: var(--font-mono); color: var(--accent-text); }
+.statement { font-family: var(--font-serif); font-size: 29px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+.proof-sub { font-size: 14.5px; line-height: 1.6; color: var(--text-dim); }
+.checks { display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: rgba(242, 239, 230, 0.7); }
+.check { display: flex; gap: 10px; align-items: baseline; }
+.check .tick { color: var(--accent-text); font-weight: 700; }
+.proof-shot { border-radius: var(--r-md); border: 1px solid var(--line-img); overflow: hidden; }
+.proof-shot img { width: 100%; display: block; }
+#about { padding-bottom: 72px; }
+.about-card { background: var(--card-inner); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 36px 40px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.about-badge { width: 66px; height: 66px; flex: none; border: 1px solid var(--line-strong); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--cream); }
+.about-copy h2 { margin: 0 0 8px; font-family: var(--font-serif); font-size: 22px; font-weight: 600; }
+.about-copy p { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--text-soft); }
+#faq { padding-bottom: 72px; display: flex; flex-direction: column; gap: 24px; }
+#faq > h2 { margin: 0; font-family: var(--font-serif); font-size: 30px; font-weight: 600; letter-spacing: -0.015em; }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-top: 1px solid var(--line); padding: 22px 0; display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-item h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.faq-item p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+#status { max-width: 760px; margin: 0 auto; padding: 0 32px 72px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
+#status h2 { margin: 0; font-family: var(--font-serif); font-size: 26px; font-weight: 600; letter-spacing: -0.015em; }
+#status p { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--text-dim); }
+#waitlist { padding-bottom: 72px; }
+.waitlist-card { background: var(--cream); color: var(--on-cream); border: 1px solid var(--cream-line); border-radius: var(--r-lg); padding: 48px 52px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.wl-copy { display: flex; flex-direction: column; gap: 8px; max-width: 480px; }
+.wl-copy h2 { margin: 0; font-family: var(--font-serif); font-size: 30px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; }
+.wl-copy p { margin: 0; font-size: 14px; line-height: 1.5; color: rgba(23, 21, 18, 0.65); }
+form.waitlist { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+form.waitlist input { background: #fff; border: 1px solid rgba(23, 21, 18, 0.25); border-radius: var(--r-md); padding: 13px 16px; font-size: 14px; color: var(--on-cream); font-family: inherit; outline: none; }
+form.waitlist input::placeholder { color: rgba(23, 21, 18, 0.5); }
+form.waitlist input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(47, 106, 78, 0.35); }
+form.waitlist button:focus-visible { outline: 2px solid var(--on-cream); outline-offset: 2px; }
+form.waitlist input[name="name"] { width: 140px; }
+form.waitlist input[name="email"] { width: 210px; }
+form.waitlist button { background: var(--accent); color: var(--on-accent); border: none; border-radius: var(--r-md); padding: 14px 24px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s ease; }
+form.waitlist button:hover { background: var(--accent-hover); }
+.wl-note { margin: 14px 4px 0; font-size: 12px; color: rgba(242, 239, 230, 0.4); }
+.wl-note a { color: rgba(242, 239, 230, 0.6); }
+.wl-note a:hover { color: var(--text); }
+footer.site { border-top: 1px solid var(--line); }
+footer.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 22px; padding-bottom: 22px; font-size: 12px; color: var(--text-faint); flex-wrap: wrap; gap: 12px; }
+footer.site .links { display: flex; gap: 20px; flex-wrap: wrap; }
+footer.site a { color: var(--text-faint); text-decoration: none; transition: color .15s ease; }
+footer.site a:hover { color: var(--text); }
+.cookie-banner { position: fixed; left: 20px; right: 20px; bottom: 20px; z-index: 100; max-width: 640px; margin: 0 auto; background: var(--card); border: 1px solid var(--line-strong); border-radius: var(--r-lg); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); padding: 20px 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.cookie-banner p { margin: 0; font-size: 0.88rem; color: var(--text-soft); flex: 1 1 320px; }
+.cookie-banner a { color: var(--text); }
+.cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.btn { background: var(--accent); color: var(--on-accent); border: none; border-radius: var(--r-md); padding: 9px 18px; font-size: 0.9rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .15s ease; }
+.btn:hover { background: var(--accent-hover); }
+.btn-ghost { background: transparent; color: var(--text-soft); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { color: var(--text); border-color: rgba(255, 255, 255, 0.4); }
+@media (max-width: 480px) { .cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 16px; } }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
+  .hero h1 { font-size: 40px; }
+  .stats-strip { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .stat:last-child { border-bottom: none; }
+  .service-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .proof-grid { grid-template-columns: 1fr; gap: 28px; }
+  .proof-card { padding: 32px 24px; }
+  .about-card { grid-template-columns: 1fr; gap: 18px; padding: 28px 24px; }
+  .faq-item { grid-template-columns: 1fr; gap: 8px; }
+  .waitlist-card { padding: 36px 28px; flex-direction: column; align-items: stretch; }
+  form.waitlist input[name="name"], form.waitlist input[name="email"] { width: 100%; flex: 1 1 100%; }
+  form.waitlist button { flex: 1 1 100%; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 33px; }
+  .section-head h2 { font-size: 27px; }
+  .statement { font-size: 24px; }
+  nav.main { gap: 16px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://foidirector.co.uk/#org",
+      "name": "FOI Director",
+      "legalName": "Optima Information & Research",
+      "url": "https://foidirector.co.uk/",
+      "email": "hello@foidirector.co.uk",
+      "description": "FOI Director runs Freedom of Information request campaigns against UK public authorities at scale, private, deadline-tracked, with automatic chasers, response classification and structured data export.",
+      "areaServed": "GB",
+      "founder": { "@type": "Person", "name": "Darren Hale" }
+    },
+    {
+      "@type": "Service",
+      "name": "Managed FOI campaigns",
+      "provider": { "@id": "https://foidirector.co.uk/#org" },
+      "areaServed": "GB",
+      "serviceType": "Freedom of Information research",
+      "description": "End-to-end Freedom of Information campaigns run for journalists, consultancies, law firms and NGOs: request drafting, multi-authority sending, statutory deadline tracking, automatic chasers, ICO escalation, and a clean structured dataset with analysis."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is FOI Director?",
+          "acceptedAnswer": { "@type": "Answer", "text": "FOI Director runs Freedom of Information request campaigns against UK public authorities at scale, sending to dozens or hundreds of bodies at once, tracking every statutory 20-working-day deadline, chasing automatically, classifying the replies and exporting the data. It is built for journalists, consultancies, NGOs and researchers." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is it different from WhatDoTheyKnow?",
+          "acceptedAnswer": { "@type": "Answer", "text": "FOI Director campaigns are private rather than published, send to hundreds of authorities at once, track statutory deadlines with automatic chasers, classify responses question by question, flag unlawful barriers with a ready-to-send ICO complaint, and export structured data." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you run a campaign for me?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. As well as the platform, we run FOI campaigns for you as a managed service, scoping the questions, sending to the right authorities, chasing and escalating, and delivering a clean dataset and summary. This is available now, ahead of the self-serve platform." }
+        },
+        {
+          "@type": "Question",
+          "name": "Who runs FOI Director?",
+          "acceptedAnswer": { "@type": "Answer", "text": "FOI Director is part of Optima Information & Research, founded by Darren Hale, who spent 30 years in UK local government, including as a service head in a London Borough, and has since run a business in the private sector." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <span class="brand">FOI Campaign Manager</span>
-      <nav aria-label="Primary">
-        <a href="#features">Features</a>
-        <a href="#who">Who it is for</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#register" class="btn btn-small">Register interest</a>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <div class="nav-left">
+      <span class="wordmark">FOI Director</span>
+      <nav class="main">
+        <a href="#service">Run it for you</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#proof">The evidence</a>
+        <a href="blog/index.html">Field Notes</a>
+        <a href="#faq">FAQ</a>
       </nav>
     </div>
-  </header>
-
-  <main id="main">
-    <section class="hero">
-      <div class="container">
-        <h1>Freedom of Information campaigns, run properly.</h1>
-        <p class="lead">
-          Send FOI requests to hundreds of UK public authorities at once, track every
-          statutory deadline, chase non-responders automatically, and have the replies
-          read and broken down question by question. Private by default.
-        </p>
-        <p><a href="#register" class="btn btn-primary">Register your interest</a></p>
-        <p class="note">Working title. Currently in testing, validated against a live campaign to 335 councils.</p>
-      </div>
-    </section>
-
-    <section id="features" class="section">
-      <div class="container">
-        <h2>What it does</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Send at scale</h3>
-            <p>One request, hundreds of authorities. Batches with sensible throttling, or send to a chosen few.</p>
-          </div>
-          <div class="card">
-            <h3>Deadline tracking</h3>
-            <p>The 20 working day clock is tracked per authority, with automatic chasers and internal review escalation.</p>
-          </div>
-          <div class="card">
-            <h3>Replies read for you</h3>
-            <p>Responses are classified and broken down question by question: answered, partial, not held, or refused.</p>
-          </div>
-          <div class="card">
-            <h3>Challenge weak answers</h3>
-            <p>Built-in, editable challenge letters for implausible "not held" replies, deflections, and refusals.</p>
-          </div>
-          <div class="card">
-            <h3>Private by default</h3>
-            <p>Your campaign and its data stay yours. Not published to the world, unlike public FOI sites.</p>
-          </div>
-          <div class="card">
-            <h3>Export and report</h3>
-            <p>Tables, charts, and CSV or PDF export, including per-question answers across every authority.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="who" class="section section-alt">
-      <div class="container">
-        <h2>Who it is for</h2>
-        <ul class="who-list">
-          <li><strong>Investigative journalists</strong> gathering data across many authorities for a story.</li>
-          <li><strong>NGOs and campaign groups</strong> building an evidence base for advocacy.</li>
-          <li><strong>Consultancies and researchers</strong> running FOI research for clients or studies.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="pricing" class="section">
-      <div class="container">
-        <h2>Pricing</h2>
-        <p class="muted">Indicative plans. A 14 day free trial is planned at launch.</p>
-        <div class="grid pricing">
-          <div class="card price-card">
-            <h3>Starter</h3>
-            <p class="price">£29<span>/month</span></p>
-            <ul>
-              <li>1 campaign</li>
-              <li>Up to 50 authorities</li>
-              <li>Deadline tracking and chasers</li>
-            </ul>
-          </div>
-          <div class="card price-card featured">
-            <h3>Professional</h3>
-            <p class="price">£79<span>/month</span></p>
-            <ul>
-              <li>3 campaigns</li>
-              <li>Full authority list</li>
-              <li>Response analysis and challenges</li>
-            </ul>
-          </div>
-          <div class="card price-card">
-            <h3>Agency</h3>
-            <p class="price">£199<span>/month</span></p>
-            <ul>
-              <li>Unlimited campaigns</li>
-              <li>Team access and roles</li>
-              <li>Priority support</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="register" class="section section-alt">
-      <div class="container narrow">
-        <h2>Register your interest</h2>
-        <p>Be among the first to try it. Leave your details and we will be in touch before launch.</p>
-        <!-- Replace the action below with your form endpoint (Formspree, Zoho Forms, etc.). -->
-        <form class="register-form" action="https://formspree.io/f/REPLACE_ME" method="POST">
-          <label for="name">Your name</label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
-
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
-
-          <label for="org">Organisation (optional)</label>
-          <input type="text" id="org" name="organisation" autocomplete="organization">
-
-          <label for="use">What would you use it for? (optional)</label>
-          <textarea id="use" name="use" rows="3"></textarea>
-
-          <button type="submit" class="btn btn-primary">Register interest</button>
-        </form>
-        <p class="note">Until the form endpoint is set, you can email
-          <a href="mailto:darren.hale@144mboriginals.com">darren.hale@144mboriginals.com</a>.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year">2026</span> FOI Campaign Manager (working title).</p>
-      <nav aria-label="Footer">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="accessibility.html">Accessibility</a>
-      </nav>
+    <div class="nav-right">
+      <span class="beta-note">Platform in development</span>
+      <a href="#service" class="btn-nav">Talk to us</a>
     </div>
-  </footer>
+  </div>
+</header>
 
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<main id="main">
+
+<section class="hero wrap">
+  <div class="hero-copy">
+    <span class="pill-badge"><span class="dot"></span>Freedom of Information, at scale</span>
+    <h1>Hundreds of FOI requests. Zero missed deadlines.</h1>
+    <p class="lede">The private way to run UK Freedom of Information campaigns at scale, for journalists, consultancies, NGOs and researchers who need to reach dozens or hundreds of public authorities without losing track of a single statutory deadline.</p>
+    <div class="cta-row">
+      <a href="#service" class="btn-primary">Have us run your campaign</a>
+      <a href="#proof" class="btn-outline">See the evidence</a>
+    </div>
+    <div class="micro-row">
+      <span>Private by default</span><span>&middot;</span><span>Statutory clock tracked</span><span>&middot;</span><span>ICO challenges built in</span>
+    </div>
+  </div>
+
+  <div class="mock" aria-hidden="true">
+    <div class="mock-head">
+      <span class="mock-title">Campaign: Abandoned vehicles</span>
+      <span class="dark-pill">307 authorities</span>
+    </div>
+    <div class="mock-chart">
+      <div style="height:30%"></div><div style="height:55%"></div><div style="height:42%"></div><div style="height:68%"></div><div style="height:50%"></div><div style="height:80%"></div><div style="height:62%"></div><div style="height:88%"></div><div style="height:45%"></div><div style="height:72%"></div><div style="height:58%"></div><div style="height:90%"></div><div style="height:36%"></div><div style="height:64%"></div>
+    </div>
+    <div class="mock-rows">
+      <div class="mock-row"><span>Birmingham City Council</span><span class="val">Answered &middot; day 14</span></div>
+      <div class="mock-row"><span>Kent Police</span><span class="val chase">Chaser sent &middot; day 22</span></div>
+      <div class="mock-row"><span>Dept for Transport</span><span class="val wait">Awaiting &middot; day 9</span></div>
+    </div>
+    <div class="mock-footer">
+      <span class="flag">1 unlawful barrier flagged</span>
+      <span class="dark-pill">Send ICO complaint</span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="stats-strip">
+    <div class="stat"><div class="num">307</div><div class="lbl">councils sent a request in one live campaign</div></div>
+    <div class="stat"><div class="num">407</div><div class="lbl">emails received and classified</div></div>
+    <div class="stat"><div class="num">1,987</div><div class="lbl">individual answers extracted and analysed</div></div>
+  </div>
+</section>
+
+<section id="service" class="wrap">
+  <div class="service-card">
+    <div class="service-copy">
+      <span class="eyebrow">Available now</span>
+      <h2>Need the data now? We'll run the campaign for you.</h2>
+      <p>The self-serve platform is still in development. But you don't have to wait for it. Give us the question you need answered, and we run the whole Freedom of Information campaign end to end. You do nothing and get clean answers back.</p>
+      <ul class="service-list">
+        <li>We word the requests so authorities have to answer, not refuse</li>
+        <li>We send to every relevant authority: one council or all of them</li>
+        <li>We track every deadline, chase the late ones, escalate to the ICO</li>
+        <li>You get a structured spreadsheet and a plain-English summary</li>
+      </ul>
+    </div>
+    <div class="service-cta">
+      <a href="mailto:hello@foidirector.co.uk?subject=FOI%20campaign%20enquiry" class="btn-primary">Talk to us about your campaign</a>
+      <span class="service-note">A short call tells us whether we can get you the data you need. Fixed price per campaign, no subscription.</span>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="wrap">
+  <div class="section-head">
+    <h2>How it works</h2>
+    <span class="head-note">Four steps, the same for ten authorities or three hundred.</span>
+  </div>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="chip chip-1">1</div>
+      <h3>Choose your authorities</h3>
+      <p>Councils, police forces, government departments, NHS bodies and more, grouped and searchable, with a running total as you go.</p>
+      <div class="card-img">
+        <img src="images/snip2.webp" width="726" height="386" loading="lazy"
+             alt="Authority picker showing public bodies grouped by type with a running total">
+      </div>
+    </div>
+    <div class="card">
+      <div class="chip chip-2">2</div>
+      <h3>Write your questions once</h3>
+      <p>Add your FOI questions, and the platform tracks each one individually as replies come in, not just a single status per letter.</p>
+      <div class="qlist" aria-hidden="true">
+        <div class="qrow"><span class="qtag">Q1</span>How many abandoned vehicles were reported in 2025?</div>
+        <div class="qrow"><span class="qtag">Q2</span>How many were removed within 28 days?</div>
+        <div class="qrow active"><span class="qtag">Q3</span>What was the total cost of removal and storage?</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="chip chip-3">3</div>
+      <h3>Send, and let the deadlines track themselves</h3>
+      <p>Every request is tracked against the statutory 20-working-day clock, with automatic chasers when authorities go quiet.</p>
+      <div class="clock-panel" aria-hidden="true">
+        <div class="clock-label"><span>Statutory clock</span><span>Day 14 of 20</span></div>
+        <div class="clock-track"><div class="clock-fill"></div></div>
+        <div class="clock-row">
+          <span class="who">Kent Police &middot; no reply yet</span>
+          <span class="dark-pill">Chaser scheduled</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="chip chip-4">4</div>
+      <h3>Get the answers, not just the emails</h3>
+      <p>Replies are read question by question, answered, refused, or claimed not held, with the extracted figures pulled out for you.</p>
+      <div class="results" aria-hidden="true">
+        <div class="result-row"><span class="q">Q1 &middot; reported in 2025</span><span class="result-pill cream">Answered &middot; 1,204</span></div>
+        <div class="result-row"><span class="q">Q2 &middot; removed in 28 days</span><span class="result-pill accent">Refused &middot; s.12</span></div>
+        <div class="result-row"><span class="q">Q3 &middot; total cost</span><span class="result-pill outline">Not held</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof" class="wrap">
+  <div class="proof-card">
+    <div class="proof-grid">
+      <div class="proof-copy">
+        <span class="eyebrow">Built on a real campaign, not a demo</span>
+        <span class="statement">FOI Director grew out of a live campaign to 307 English councils: 407 emails received and classified, 1,987 answers extracted.</span>
+        <span class="proof-sub">The deadline tracking, reply-matching and challenge workflow aren't theoretical. They're the same logic that ran a real national campaign.</span>
+      </div>
+      <div class="checks">
+        <div class="check"><span class="tick">&#10003;</span>Sent to English local councils nationwide</div>
+        <div class="check"><span class="tick">&#10003;</span>Every request tracked against the statutory working-day deadline</div>
+        <div class="check"><span class="tick">&#10003;</span>Responses classified question by question, not just marked "received"</div>
+        <div class="check"><span class="tick">&#10003;</span>Unlawful sign-up or postal-only barriers flagged automatically, with a ready-to-send ICO complaint</div>
+      </div>
+    </div>
+    <div class="proof-shot">
+      <img src="images/snip1.webp" width="763" height="381" loading="lazy"
+           alt="Live authority tracker from the abandoned-vehicles FOI campaign, showing each public body's status, FOI contact, send date, deadline, and days elapsed">
+    </div>
+  </div>
+</section>
+
+<section id="about" class="wrap">
+  <div class="about-card">
+    <div class="about-badge">DH</div>
+    <div class="about-copy">
+      <h2>Who's behind it</h2>
+      <p>FOI Director is part of Optima Information &amp; Research, founded by Darren Hale. Thirty years inside UK local government, including as a service head in a London Borough, followed by years running a business in the private sector, means knowing both how authorities handle information requests and what it takes to deliver for a paying client. That experience is built into the platform, and it's what you get when we run a campaign for you.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wrap">
+  <h2>Common questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>How is this different from WhatDoTheyKnow?</h3>
+      <p>Your requests stay private rather than published. You can send to hundreds of authorities at once, track every statutory deadline with automatic chasers, get responses classified question by question, and export the data as a clean spreadsheet, with unlawful barriers flagged and a ready-to-send ICO complaint.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can you just run it for me?</h3>
+      <p>Yes, that's available now, ahead of the self-serve platform. Tell us the question you need answered and we handle the whole campaign: wording, sending, chasing, escalation, and a finished dataset with a summary. Fixed price per campaign, no subscription.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Who is it for?</h3>
+      <p>Investigative journalists, consultancies and researchers gathering data across many authorities, and NGOs and campaign groups building an evidence base for advocacy.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is it lawful, and what about my data?</h3>
+      <p>Everything is done under the Freedom of Information Act 2000, and your information is handled in line with UK GDPR. The hosted platform launches only once its security and data-protection work is complete.</p>
+    </div>
+  </div>
+</section>
+
+<section id="status">
+  <h2>Where things stand</h2>
+  <p>The managed service is running now. The hosted, self-serve platform is in development. We're finishing the security and reliability work a system handling your email account and FOI correspondence should have: encrypted credential storage, GDPR documentation, and an independent security review. Join the waitlist and we'll let you know the moment it opens.</p>
+</section>
+
+<section id="waitlist" class="wrap">
+  <div class="waitlist-card">
+    <div class="wl-copy">
+      <h2>Get notified when the platform opens</h2>
+      <p>No spam, just an email when the hosted version launches. 14-day free trial, no card required. Need data sooner? <a href="#service" style="color:inherit;text-decoration:underline;">Have us run it for you</a>.</p>
+    </div>
+    <!-- Waitlist posts to Formspree (form xjgnwrvn), stores and emails every signup. -->
+    <form class="waitlist" action="https://formspree.io/f/xjgnwrvn" method="POST">
+      <input type="hidden" name="_subject" value="FOI Director waitlist signup">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="text" name="name" placeholder="Name" aria-label="Name" required>
+      <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+      <button type="submit">Join the waitlist</button>
+    </form>
+  </div>
+  <p class="wl-note">By joining, you'll only hear from us about FOI Director. See our <a href="data-handling.html">data handling page</a> for how we treat your information.</p>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>FOI Director, from Optima Information &amp; Research</span>
+    <div class="links">
+      <a href="mailto:hello@foidirector.co.uk">hello@foidirector.co.uk</a>
+      <a href="data-handling.html">Privacy Policy</a>
+      <a href="#" id="cookie-settings">Cookie settings</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/consent.js" defer></script>
+<script>
+(function () {
+  var form = document.querySelector('form.waitlist');
+  if (!form) return;
+  var loadedAt = Date.now();
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // Reject bot-speed submissions: a real person takes more than a couple of seconds.
+    if (Date.now() - loadedAt < 2500) { showErr(); return; }
+    var btn = form.querySelector('button');
+    if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (res.ok) {
+        form.outerHTML = '<div style="font-family:inherit;color:#171512;font-size:15px;font-weight:500;line-height:1.5">You’re on the list. We’ll email you the moment FOI Director opens.</div>';
+      } else {
+        if (btn) { btn.disabled = false; btn.textContent = 'Join the waitlist'; }
+        showErr();
+      }
+    }).catch(function () {
+      if (btn) { btn.disabled = false; btn.textContent = 'Join the waitlist'; }
+      showErr();
+    });
+    function showErr() {
+      if (form.querySelector('.wl-err')) return;
+      var m = document.createElement('div');
+      m.className = 'wl-err';
+      m.style.cssText = 'margin-top:10px;color:#bb3b2b;font-size:13px;font-family:inherit';
+      m.textContent = 'Sorry, something went wrong. Please email darren@foidirector.co.uk';
+      form.appendChild(m);
+    }
+  });
+})();
+</script>
 </body>
 </html>
