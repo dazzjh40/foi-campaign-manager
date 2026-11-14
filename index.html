@@ -110,6 +110,13 @@ nav.main a:hover { color: var(--text); }
 .service-cta { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .service-cta .btn-primary { padding: 14px 26px; }
 .service-note { font-size: 12.5px; color: var(--text-faint); }
+.tiers { list-style: none; margin: 0; padding: 0; width: 100%; border: 1px solid var(--line); border-radius: var(--r-md); }
+.tiers li { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.tiers li:last-child { border-bottom: none; }
+.tier-name { font-size: 15px; font-weight: 600; }
+.tier-price { grid-row: span 2; align-self: center; font-family: var(--font-serif); font-size: 26px; font-weight: 600; }
+.tier-scope { font-size: 13px; color: var(--text-dim); }
+.proof-sub a { color: inherit; text-decoration: underline; }
 #how-it-works { padding-bottom: 72px; display: flex; flex-direction: column; gap: 28px; }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; }
 .section-head h2 { margin: 0; font-family: var(--font-serif); font-size: 34px; font-weight: 600; letter-spacing: -0.015em; }
@@ -264,7 +271,12 @@ footer.site a:hover { color: var(--text); }
         {
           "@type": "Question",
           "name": "Can you run a campaign for me?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. As well as the platform, we run FOI campaigns for you as a managed service, scoping the questions, sending to the right authorities, chasing and escalating, and delivering a clean dataset and summary. This is available now, ahead of the self-serve platform." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run FOI campaigns for you as a managed service, scoping the questions, sending to the right public authorities, chasing and escalating, and delivering a clean dataset and summary. Fixed prices start at £95 for a private request to up to 10 public authorities. This is available now, ahead of the self-serve platform." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I keep my name off the request?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Requests go out in the name of Optima Information & Research, so the public authority never sees who asked. FOI is meant to be applicant-blind, but many organisations would rather not rely on that." }
         },
         {
           "@type": "Question",
@@ -319,15 +331,15 @@ footer.site a:hover { color: var(--text); }
   <div class="mock" aria-hidden="true">
     <div class="mock-head">
       <span class="mock-title">Campaign: Abandoned vehicles</span>
-      <span class="dark-pill">307 authorities</span>
+      <span class="dark-pill">307 councils</span>
     </div>
     <div class="mock-chart">
       <div style="height:30%"></div><div style="height:55%"></div><div style="height:42%"></div><div style="height:68%"></div><div style="height:50%"></div><div style="height:80%"></div><div style="height:62%"></div><div style="height:88%"></div><div style="height:45%"></div><div style="height:72%"></div><div style="height:58%"></div><div style="height:90%"></div><div style="height:36%"></div><div style="height:64%"></div>
     </div>
     <div class="mock-rows">
-      <div class="mock-row"><span>Birmingham City Council</span><span class="val">Answered &middot; day 14</span></div>
-      <div class="mock-row"><span>Kent Police</span><span class="val chase">Chaser sent &middot; day 22</span></div>
-      <div class="mock-row"><span>Dept for Transport</span><span class="val wait">Awaiting &middot; day 9</span></div>
+      <div class="mock-row"><span>A metropolitan borough</span><span class="val">Answered &middot; day 14</span></div>
+      <div class="mock-row"><span>A county council</span><span class="val chase">Chaser sent &middot; day 22</span></div>
+      <div class="mock-row"><span>A district council</span><span class="val wait">Awaiting &middot; day 9</span></div>
     </div>
     <div class="mock-footer">
       <span class="flag">1 unlawful barrier flagged</span>
@@ -339,8 +351,8 @@ footer.site a:hover { color: var(--text); }
 <section class="wrap">
   <div class="stats-strip">
     <div class="stat"><div class="num">307</div><div class="lbl">councils sent a request in one live campaign</div></div>
-    <div class="stat"><div class="num">407</div><div class="lbl">emails received and classified</div></div>
-    <div class="stat"><div class="num">1,987</div><div class="lbl">individual answers extracted and analysed</div></div>
+    <div class="stat"><div class="num">623</div><div class="lbl">emails received and classified</div></div>
+    <div class="stat"><div class="num">7,335</div><div class="lbl">individual answers extracted and analysed</div></div>
   </div>
 </section>
 
@@ -349,30 +361,35 @@ footer.site a:hover { color: var(--text); }
     <div class="service-copy">
       <span class="eyebrow">Available now</span>
       <h2>Need the data now? We'll run the campaign for you.</h2>
-      <p>The self-serve platform is still in development. But you don't have to wait for it. Give us the question you need answered, and we run the whole Freedom of Information campaign end to end. You do nothing and get clean answers back.</p>
+      <p>Give us the question you need answered, and we run the whole Freedom of Information campaign end to end, from a handful of public authorities to several hundred. The requests go out in our name, so yours never reaches the authority. You get clean answers back.</p>
       <ul class="service-list">
         <li>We word the requests so authorities have to answer, not refuse</li>
-        <li>We send to every relevant authority: one council or all of them</li>
+        <li>We send to every relevant public authority: councils, police forces, government departments, NHS bodies</li>
         <li>We track every deadline, chase the late ones, escalate to the ICO</li>
         <li>You get a structured spreadsheet and a plain-English summary</li>
       </ul>
     </div>
     <div class="service-cta">
-      <a href="mailto:hello@foidirector.co.uk?subject=FOI%20campaign%20enquiry" class="btn-primary">Talk to us about your campaign</a>
-      <span class="service-note">A short call tells us whether we can get you the data you need. Fixed price per campaign, no subscription.</span>
+        <ul class="tiers">
+          <li><span class="tier-name">Private request</span><span class="tier-price">&pound;95</span><span class="tier-scope">Up to 10 public authorities. Your name never appears.</span></li>
+          <li><span class="tier-name">Campaign</span><span class="tier-price">&pound;450</span><span class="tier-scope">Up to 100 public authorities, such as every police force or one region's councils.</span></li>
+          <li><span class="tier-name">National</span><span class="tier-price">&pound;750</span><span class="tier-scope">Up to 400 public authorities, such as every council in England.</span></li>
+        </ul>
+        <span class="service-note">Fixed prices, no subscription. Private requests are paid up front. Campaigns are half up front and half when you receive the data. Pilot prices; larger campaigns by quote.</span>
+        <a href="mailto:hello@foidirector.co.uk?subject=FOI%20campaign%20enquiry" class="btn-primary">Email us about your campaign</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section id="how-it-works" class="wrap">
   <div class="section-head">
     <h2>How it works</h2>
-    <span class="head-note">Four steps, the same for ten authorities or three hundred.</span>
+    <span class="head-note">Four steps, the same for ten public authorities or three hundred.</span>
   </div>
   <div class="cards-grid">
     <div class="card">
       <div class="chip chip-1">1</div>
-      <h3>Choose your authorities</h3>
+      <h3>Choose your public authorities</h3>
       <p>Councils, police forces, government departments, NHS bodies and more, grouped and searchable, with a running total as you go.</p>
       <div class="card-img">
         <img src="images/snip2.webp" width="726" height="386" loading="lazy"
@@ -397,7 +414,7 @@ footer.site a:hover { color: var(--text); }
         <div class="clock-label"><span>Statutory clock</span><span>Day 14 of 20</span></div>
         <div class="clock-track"><div class="clock-fill"></div></div>
         <div class="clock-row">
-          <span class="who">Kent Police &middot; no reply yet</span>
+          <span class="who">A district council &middot; no reply yet</span>
           <span class="dark-pill">Chaser scheduled</span>
         </div>
       </div>
@@ -420,8 +437,8 @@ footer.site a:hover { color: var(--text); }
     <div class="proof-grid">
       <div class="proof-copy">
         <span class="eyebrow">Built on a real campaign, not a demo</span>
-        <span class="statement">FOI Director grew out of a live campaign to 307 English councils: 407 emails received and classified, 1,987 answers extracted.</span>
-        <span class="proof-sub">The deadline tracking, reply-matching and challenge workflow aren't theoretical. They're the same logic that ran a real national campaign.</span>
+        <span class="statement">FOI Director grew out of a live campaign to 307 English councils: 623 emails received and classified, 7,335 answers extracted.</span>
+        <span class="proof-sub">The deadline tracking, reply-matching and challenge workflow aren't theoretical. They're the same logic that ran a real national campaign. <a href="https://optimaconsulting.co.uk/abandoned-vehicles-findings.html">Read what the councils told us</a>.</span>
       </div>
       <div class="checks">
         <div class="check"><span class="tick">&#10003;</span>Sent to English local councils nationwide</div>
@@ -456,7 +473,11 @@ footer.site a:hover { color: var(--text); }
     </div>
     <div class="faq-item">
       <h3>Can you just run it for me?</h3>
-      <p>Yes, that's available now, ahead of the self-serve platform. Tell us the question you need answered and we handle the whole campaign: wording, sending, chasing, escalation, and a finished dataset with a summary. Fixed price per campaign, no subscription.</p>
+      <p>Yes, that's available now, ahead of the self-serve platform. Tell us the question you need answered and we handle the whole campaign: wording, sending, chasing, escalation, and a finished dataset with a summary. Fixed prices from &pound;95, no subscription.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I keep my name off the request?</h3>
+      <p>Yes. Requests go out in the name of Optima Information &amp; Research, so the public authority never sees who asked. FOI is meant to be applicant-blind, but many organisations would rather not rely on that.</p>
     </div>
     <div class="faq-item">
       <h3>Who is it for?</h3>
@@ -471,25 +492,25 @@ footer.site a:hover { color: var(--text); }
 
 <section id="status">
   <h2>Where things stand</h2>
-  <p>The managed service is running now. The hosted, self-serve platform is in development. We're finishing the security and reliability work a system handling your email account and FOI correspondence should have: encrypted credential storage, GDPR documentation, and an independent security review. Join the waitlist and we'll let you know the moment it opens.</p>
+  <p>The managed service is running now. The hosted, self-serve platform is in development. We're finishing the security and reliability work a system handling your email account and FOI correspondence should have: encrypted credential storage, GDPR documentation, and an independent security review. Register interest below and we will let you know when it opens.</p>
 </section>
 
 <section id="waitlist" class="wrap">
   <div class="waitlist-card">
     <div class="wl-copy">
-      <h2>Get notified when the platform opens</h2>
-      <p>No spam, just an email when the hosted version launches. 14-day free trial, no card required. Need data sooner? <a href="#service" style="color:inherit;text-decoration:underline;">Have us run it for you</a>.</p>
+      <h2>Register interest in the self-serve platform</h2>
+      <p>No spam, just one email when the hosted version opens. Need data now? <a href="#service" style="color:inherit;text-decoration:underline;">Have us run it for you</a>.</p>
     </div>
     <!-- Waitlist posts to Formspree (form xjgnwrvn), stores and emails every signup. -->
     <form class="waitlist" action="https://formspree.io/f/xjgnwrvn" method="POST">
-      <input type="hidden" name="_subject" value="FOI Director waitlist signup">
+      <input type="hidden" name="_subject" value="FOI Director platform interest">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="text" name="name" placeholder="Name" aria-label="Name" required>
       <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-      <button type="submit">Join the waitlist</button>
+      <button type="submit">Register interest</button>
     </form>
   </div>
-  <p class="wl-note">By joining, you'll only hear from us about FOI Director. See our <a href="data-handling.html">data handling page</a> for how we treat your information.</p>
+  <p class="wl-note">By registering, you'll only hear from us about FOI Director. See our <a href="data-handling.html">data handling page</a> for how we treat your information.</p>
 </section>
 
 </main>
@@ -516,20 +537,20 @@ footer.site a:hover { color: var(--text); }
     // Reject bot-speed submissions: a real person takes more than a couple of seconds.
     if (Date.now() - loadedAt < 2500) { showErr(); return; }
     var btn = form.querySelector('button');
-    if (btn) { btn.disabled = true; btn.textContent = 'Joining…'; }
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
     fetch(form.action, {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     }).then(function (res) {
       if (res.ok) {
-        form.outerHTML = '<div style="font-family:inherit;color:#171512;font-size:15px;font-weight:500;line-height:1.5">You’re on the list. We’ll email you the moment FOI Director opens.</div>';
+        form.outerHTML = '<div style="font-family:inherit;color:#171512;font-size:15px;font-weight:500;line-height:1.5">Thank you. We’ll email you when the platform opens.</div>';
       } else {
-        if (btn) { btn.disabled = false; btn.textContent = 'Join the waitlist'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'Register interest'; }
         showErr();
       }
     }).catch(function () {
-      if (btn) { btn.disabled = false; btn.textContent = 'Join the waitlist'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Register interest'; }
       showErr();
     });
     function showErr() {
@@ -537,7 +558,7 @@ footer.site a:hover { color: var(--text); }
       var m = document.createElement('div');
       m.className = 'wl-err';
       m.style.cssText = 'margin-top:10px;color:#bb3b2b;font-size:13px;font-family:inherit';
-      m.textContent = 'Sorry, something went wrong. Please email darren@foidirector.co.uk';
+      m.textContent = 'Sorry, something went wrong. Please email hello@foidirector.co.uk';
       form.appendChild(m);
     }
   });
